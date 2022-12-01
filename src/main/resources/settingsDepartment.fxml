@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox prefHeight="795.0" prefWidth="1026.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SettingsDepController">
+    <children>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="770.0" prefWidth="924.0" VBox.vgrow="ALWAYS">
+            <children>
+                <TreeTableView fx:id="departmentTBL" focusTraversable="false" layoutX="-1.0" onMouseClicked="#loadData" prefHeight="770.0" prefWidth="460.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                        <TreeTableColumn fx:id="depAddress" editable="false" prefWidth="193.0" resizable="false" text="Подразделение" />
+                        <TreeTableColumn fx:id="directorDepAddress" prefWidth="268.0" resizable="false" text="Руководитель подразделения" />
+                    </columns>
+                </TreeTableView>
+                <Button fx:id="addBT" layoutX="659.0" layoutY="14.0" mnemonicParsing="false" onAction="#addDepartment" prefHeight="25.0" prefWidth="100.0" text="Добавить" />
+                <Button fx:id="saveBT" layoutX="785.0" layoutY="14.0" mnemonicParsing="false" onAction="#saveDepartment" prefHeight="25.0" prefWidth="100.0" text="Сохранить" />
+                <Button fx:id="delBT" layoutX="912.0" layoutY="14.0" mnemonicParsing="false" onAction="#removeDepartment" prefHeight="25.0" prefWidth="100.0" text="Удалить" />
+                <GridPane id="gridPane" layoutX="470.0" layoutY="53.0" prefHeight="325.0" prefWidth="542.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="120.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="34.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Поздразделение" textFill="#1257cc">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label text="Краткое обозначение подразделения" textFill="#1257cc" GridPane.rowIndex="1">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label text="Данные руководителя подразделения:" textFill="#1257cc" GridPane.rowIndex="2">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="230.0" text="Фамилия" textFill="#1257cc" GridPane.rowIndex="3" />
+                        <Label alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="230.0" text="Имя" textFill="#1257cc" GridPane.rowIndex="4" />
+                        <Label alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="230.0" text="Отчество" textFill="#1257cc" GridPane.rowIndex="5" />
+                        <Label alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="230.0" text="Пол" textFill="#1257cc" GridPane.rowIndex="6" />
+                        <Label alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="17.0" prefWidth="230.0" text="Обращение" textFill="#1257cc" GridPane.rowIndex="7" />
+                        <TextField fx:id="departmentTF" GridPane.columnIndex="1" />
+                        <TextField fx:id="shortDepartmentTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="lastNameTF" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="firstNameTF" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="patronymicTF" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Group GridPane.columnIndex="1" GridPane.rowIndex="6">
+                            <children>
+                                <RadioButton fx:id="maleRB" layoutX="45.0" layoutY="1.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Муж">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="gender" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="femaleRB" layoutX="117.0" layoutY="1.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="76.0" text="Жен" toggleGroup="$gender" />
+                            </children>
+                        </Group>
+                        <Label text="Корневой блок" textFill="#1257cc" GridPane.rowIndex="8">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <ChoiceBox fx:id="rootBlock" prefHeight="25.0" prefWidth="276.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <TextArea fx:id="appealTF" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                    </children>
+                </GridPane>
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>

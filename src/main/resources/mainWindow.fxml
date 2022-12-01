@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox fx:id="mainWindowPane" prefHeight="795.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainWindowController">
+    <children>
+        <MenuBar VBox.vgrow="NEVER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Файл">
+                    <items>
+                        <MenuItem fx:id="closeApp" mnemonicParsing="false" onAction="#closeApp" text="Закрыть" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Настройки">
+                    <items>
+                        <MenuItem fx:id="settingGroupDepartment" mnemonicParsing="false" onAction="#openSettGroupDepWindow" text="Список групп подразделений" />
+                        <MenuItem fx:id="settingDepartment" mnemonicParsing="false" onAction="#openSettingsDepController" text="Список подразделений" />
+                        <MenuItem fx:id="settingExecutor" mnemonicParsing="false" onAction="#openSettingsExecutor" text="Список исполнителей" />
+                        <MenuItem fx:id="settingSignatory" mnemonicParsing="false" onAction="#openSettingsSignatories" text="Список подписантов" />
+                        <MenuItem fx:id="settingIdDepartment" mnemonicParsing="false" onAction="#openSettingsIdDepartment" text="Список кодов подразделений-отправителей" />
+                        <MenuItem fx:id="settingPathFiles" mnemonicParsing="false" onAction="#openSettingsPathFiles" text="Настройка места хранения файлов данных" />
+                        <MenuItem fx:id="menuAdmin" mnemonicParsing="false" onAction="#activateAdmin" text="Вкл. режима &quot;Администратор&quot;" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Инфо">
+                    <items>
+                        <MenuItem fx:id="aboutApp" mnemonicParsing="false" onAction="#clickAboutApp" text="О приложении" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="770.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
+            <children>
+                <TreeTableView fx:id="departmentTable" focusTraversable="false" layoutX="-1.0" prefHeight="770.0" prefWidth="622.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                        <TreeTableColumn fx:id="depAddress" editable="false" prefWidth="274.0" resizable="false" sortable="false" text="Подразделение" />
+                        <TreeTableColumn fx:id="directorDepAddress" editable="false" prefWidth="346.0" resizable="false" sortable="false" text="Руководитель подразделения" />
+                    </columns>
+                    <contextMenu>
+                        <ContextMenu>
+                            <items>
+                                <MenuItem fx:id="contextMenuMainTbl" mnemonicParsing="false" onAction="#clickContextMenuMainTbl" text="  Детали" />
+                            </items>
+                        </ContextMenu>
+                    </contextMenu>
+                </TreeTableView>
+                <DatePicker fx:id="dateMail" layoutX="637.0" layoutY="28.0" prefHeight="25.0" prefWidth="223.0" />
+                <Label layoutX="637.0" layoutY="6.0" text="Выбрать дату отправки письма" textFill="#1257cc">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label layoutX="637.0" layoutY="68.0" text="Выбрать подразделение отправителя" textFill="#1257cc">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="depSend" layoutX="637.0" layoutY="90.0" prefHeight="25.0" prefWidth="223.0" />
+                <Label layoutX="637.0" layoutY="128.0" text="Выбрать подписанта" textFill="#1257cc">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="signatory" layoutX="637.0" layoutY="149.0" prefHeight="25.0" prefWidth="223.0" />
+                <Label layoutX="637.0" layoutY="188.0" text="Выбрать исполнителя" textFill="#1257cc">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="executorMail" layoutX="637.0" layoutY="210.0" prefHeight="25.0" prefWidth="223.0" />
+                <ListView fx:id="listAddress" layoutX="637.0" layoutY="370.0" prefHeight="344.0" prefWidth="223.0" />
+                <Button fx:id="createFile" layoutX="637.0" layoutY="723.0" mnemonicParsing="false" onAction="#pressCreateFile" prefHeight="25.0" prefWidth="223.0" text="Сформировать шаблон">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="upBtn" layoutX="703.0" layoutY="339.0" mnemonicParsing="false" onAction="#pressUpBtn" text="🔼" />
+                <Button fx:id="downBtn" layoutX="768.0" layoutY="339.0" mnemonicParsing="false" onAction="#pressDownBtn" text="🔽" />
+                <Button fx:id="toFirstPosBtn" layoutX="646.0" layoutY="339.0" mnemonicParsing="false" onAction="#pressToFirstPosBtn" text="⏫" />
+                <Button fx:id="toLastPosBtn" layoutX="822.0" layoutY="339.0" mnemonicParsing="false" onAction="#pressToLastPosBtn" text="⏬" />
+                <Label layoutX="638.0" layoutY="242.0" text="Тема письма" textFill="#1257cc">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="subjectMail" layoutX="638.0" layoutY="262.0" prefHeight="71.0" prefWidth="223.0" />
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>

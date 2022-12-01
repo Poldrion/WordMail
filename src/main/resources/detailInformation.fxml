@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="317.0" prefWidth="528.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DetailInformationController">
+    <children>
+        <GridPane prefHeight="255.0" prefWidth="508.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="348.0" minWidth="10.0" prefWidth="314.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="Наименование подразделения" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="Краткое наименование подразделения" wrapText="true" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label maxWidth="-Infinity" minWidth="-Infinity" prefWidth="200.0" text="Руководитель подразделения:" wrapText="true" GridPane.rowIndex="2">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="180.0" text="Фамилия" textAlignment="RIGHT" wrapText="true" GridPane.rowIndex="3">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER_RIGHT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="180.0" text="Имя" textAlignment="RIGHT" wrapText="true" GridPane.rowIndex="4">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER_RIGHT" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="180.0" text="Отчество" textAlignment="RIGHT" wrapText="true" GridPane.rowIndex="5">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="nameDepartmentTF" editable="false" wrapText="true" GridPane.columnIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="2.0" top="2.0" />
+                    </GridPane.margin>
+                </TextArea>
+                <TextField fx:id="shortNameDepartmentTF" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets bottom="2.0" top="2.0" />
+                    </GridPane.margin>
+                </TextField>
+                <TextField fx:id="lastNameTF" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <GridPane.margin>
+                        <Insets bottom="2.0" top="2.0" />
+                    </GridPane.margin>
+                </TextField>
+                <TextField fx:id="firstNameTF" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <GridPane.margin>
+                        <Insets bottom="2.0" top="2.0" />
+                    </GridPane.margin>
+                </TextField>
+                <TextField fx:id="patronymicTF" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                    <GridPane.margin>
+                        <Insets bottom="2.0" top="2.0" />
+                    </GridPane.margin>
+                </TextField>
+            </children>
+        </GridPane>
+        <Button fx:id="okBtn" cancelButton="true" defaultButton="true" layoutX="238.0" layoutY="275.0" mnemonicParsing="false" onAction="#clickOkBtn" text="OK" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="238.0" />
+    </children>
+</AnchorPane>
